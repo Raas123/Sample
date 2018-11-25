@@ -1,0 +1,46 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+</head>
+
+<body>-->
+{% extends "personal/header.html" %}
+
+{% block content %}
+	
+	<!--<ul>
+		{% for list in customeinfolists %}
+			<a href="{%url 'update_list' list.id %)">
+				<li> {{list.firstName}}</li>
+			</a>
+		{% endfor %}
+
+	</ul>-->
+	 
+	
+	<p> Request: {{request.session.firstName}}</p>
+	 
+	<ul>
+		<table border="1">
+			<tr>
+			<th>Application Id</th><th>Card</th><th>Special Offer</th><th>First year fees</th><th>Reward Values</th><th>Approval Chance</th><th>Description</th><th>Status</th>
+			</tr>
+			{% for list in offerinfolists %}
+				<tr>
+					<td>{{list.id}} </td>
+					<td><img src="/static/personal/img/cc1.jpg" height="62" width="82" class="img-responsive" alt="face"></td>
+					<td>{{list.is_Travel}} {{is_Airport_Lounge}} {{is_Shopping}} {{is_Dining}} {{is_Movies}}  {{is_Fuel}}</td>
+					<td>{{list.first_year_fees}} </td>
+					<td>{{list.reward_values}} </td>
+					<td>{{list.chance_of_Approval}} </td>
+					<td>{{list.description}} </td>
+					<!--<td><a href="{%url 'update_list' {{list.id}} %)">  Apply </a></td>-->
+					<td><a href='update_list/{{list.id}}/'> Check Eligibility </a> </td>
+				</tr>
+			{% endfor %}
+		</table>
+	</ul>
+	
+{% endblock %}
+	
+<!--</body>
+</html>-->

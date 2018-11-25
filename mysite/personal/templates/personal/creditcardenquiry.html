@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+</head>
+
+<body>-->
+{% extends "personal/header.html" %}
+
+{% block content %}
+	<h1> Credit Card Enquiry</h1>
+	<form method="POST">
+		{% csrf_token %}
+		
+		<div class="table-wrapper">
+			<table class="alt">
+				<tbody>
+					<tr>
+						<td>First Name:</td>
+						<td>{{form.firstName}}</td>
+					</tr>
+					<tr>
+						<td> Occupation Type:</td>
+						<td>{{form.occupation_type}}</td>
+					</tr>
+					<tr>
+						<td> Annual Income :</td>
+						<td>{{form.annual_income}} </td>
+					</tr>
+					<tr>
+						<td> Pincode:</td>
+						<td> {{form.pincode}}</td>
+					</tr>
+					<tr>
+						<td> Which existing credit cards do you have?:</td>
+						<td>{{ form.card_list }}</td>
+					</tr>
+					<tr>
+						<td> Do you have any active loans?</td>
+						<td> {{form.is_credit_card}}<label> (checkbox if yes)</label></td>
+					</tr>
+					<tr>
+						<td> Mobile:</td>
+						<td> {{form.mobile}}</td>
+					</tr>
+					<tr>
+						<td> Last Name:</td>
+						<td>{{form.lastname}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<BR>
+		<p><button type="submit"> View Offers</button> </p>
+	</form>
+	
+{% endblock %}	
+	
